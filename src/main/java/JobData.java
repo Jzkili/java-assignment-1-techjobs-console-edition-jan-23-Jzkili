@@ -15,6 +15,8 @@ public class JobData {
     private static final String DATA_FILE = "src/main/resources/job_data.csv";
     private static boolean isDataLoaded = false;
 
+
+
     private static ArrayList<HashMap<String, String>> allJobs;
 
     /**
@@ -69,7 +71,7 @@ public class JobData {
 
         // load data, if not already loaded
         loadData();
-
+        int results = 0;
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
         for (HashMap<String, String> row : allJobs) {
@@ -78,11 +80,14 @@ public class JobData {
             value = value.toLowerCase();
             if (aValue.contains(value)) {
                 jobs.add(row);
-
+                 results = 1;
             }
         }
 
-        return jobs;
+          if(results == 0) {
+          System.out.println("no results");
+    }
+          return jobs;
     }
 
     /**
@@ -95,7 +100,7 @@ public class JobData {
 
         // load data, if not already loaded
         loadData();
-
+        int results = 0;
         // TODO - implement this method
 
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
@@ -109,11 +114,16 @@ public class JobData {
 
                 if (a.contains(value) || b.contains(value)) {
                     jobs.add(row);
+                    results = 1;
+
                 }
 
             }
-
+        }
+            if (results == 0) {
+                System.out.println("no results");
             }
+
 
         return jobs;
     }
