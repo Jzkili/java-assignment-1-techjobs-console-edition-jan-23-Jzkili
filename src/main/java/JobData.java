@@ -78,6 +78,7 @@ public class JobData {
             value = value.toLowerCase();
             if (aValue.contains(value)) {
                 jobs.add(row);
+
             }
         }
 
@@ -106,13 +107,14 @@ public class JobData {
                 String a = data.getValue().toLowerCase();
                 String b = data.getValue().toLowerCase();
 
-
-
-                if(a.contains(value) || b.contains(value)) {
+                if (a.contains(value) || b.contains(value)) {
                     jobs.add(row);
                 }
+
             }
-        }
+
+            }
+
         return jobs;
     }
 
